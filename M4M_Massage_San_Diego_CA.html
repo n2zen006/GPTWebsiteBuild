@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M4M Massage</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <script src="Functions/functions.js" defer></script>
+    <style>
+        body {
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var images = ["Spa_001.jpg", "Spa_002.jpg"]; // Ensure filenames match exactly
+            var randomImage = images[Math.floor(Math.random() * images.length)];
+            var imagePath = "Images/backgrounds/" + randomImage;
+            
+            // Create an image element to verify loading
+            var img = new Image();
+            img.src = imagePath;
+            img.onload = function() {
+                document.body.style.backgroundImage = 'url("' + imagePath + '")';
+                document.body.style.backgroundSize = "cover";
+                document.body.style.backgroundPosition = "center";
+                document.body.style.backgroundRepeat = "no-repeat";
+            };
+            img.onerror = function() {
+                console.error("Failed to load background image: " + imagePath);
+                document.body.style.backgroundColor = "#333"; // Fallback color
+                alert("Error: Background image failed to load. Please check file paths and names.");
+            };
+        });
+    </script>
+</body>
+</html>
